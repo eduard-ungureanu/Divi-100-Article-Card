@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
    if (!$('.divi-100-article-card').length) {
-      return false
+      return false;
    } else {
       $('.et_pb_blog_grid').find('.et_pb_post').each(function() {
          var $this = $(this);
