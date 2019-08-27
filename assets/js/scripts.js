@@ -200,7 +200,6 @@ jQuery(document).ready(function($) {
              */
             setTimeout(function() {
                $this.hover(function() {
-                  console.log('animate')
                   $this.find('.article-card__excerpt').animate({
                      height: "toggle",
                      opacity: "toggle"
