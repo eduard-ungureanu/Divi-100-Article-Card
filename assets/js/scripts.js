@@ -209,14 +209,5 @@ jQuery(document).ready(function($) {
             });
          }
       });
-
-      setTimeout(function() {
-         $('.article-card').each(function() {
-            console.log($(this));
-            $(this).hover(function() {
-               console.log('animate');
-            })
-         })
-      }, 200)
    }
 });
