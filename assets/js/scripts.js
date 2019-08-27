@@ -213,6 +213,7 @@ jQuery(document).ready(function($) {
    }
    articleCard();
    $(document).ajaxComplete(function() {
+      console.log('run function again')
       articleCard();
    })
 });
