@@ -1,4 +1,5 @@
 jQuery(document).ready(function($) {
+   //Wrap everyting into a function so we can call it on .ajaxComplete() - Eduard
    function articleCard() {
       if (!$(".divi-100-article-card").length) {
          return false;
@@ -23,6 +24,8 @@ jQuery(document).ready(function($) {
                 */
                var postContent = $this.find(".article-card__content");
                var postMeta = $this.children(".post-meta");
+
+               // Create Read More button - feature request - Eduard
                var buttonLink = $this.find(".entry-title a").attr("href");
                var button = $(
                   '<a href="' +
@@ -34,7 +37,10 @@ jQuery(document).ready(function($) {
                 * Excerpt variables
                 */
 
+               //check if the post has or not Custom Excerpt text set - Eduard
                var dt_excerpt = $this.find(".post-content-inner p");
+
+               //if it doesn't have it wrapp the custom excerpt in <p>tags - Eduard
                if (dt_excerpt.length == 0) {
                   $this.find(".post-content-inner").wrapInner("<p></p>");
                }
@@ -80,6 +86,7 @@ jQuery(document).ready(function($) {
                   .addClass("article-card__category")
                   .appendTo(postContent);
 
+               //Insert the Read More button in the card layout - Eduard
                button.appendTo(postContent);
 
                /**
@@ -221,6 +228,7 @@ jQuery(document).ready(function($) {
                    * Prevents loading incorrect state
                    */
                   setTimeout(function() {
+                     //Change the .on('hover', function(){}) with .hover(function(){}) - Eduard
                      $this.hover(function() {
                         $this.find(".article-card__excerpt").animate({
                               height: "toggle",
@@ -234,7 +242,10 @@ jQuery(document).ready(function($) {
             });
       }
    }
+   //Run the function to apply the cards layout - Eduard
    articleCard();
+
+   //Run the function to apply the cards layout when AJAX pagination it is used - Eduard
    $(document).ajaxComplete(function() {
       articleCard();
    });
